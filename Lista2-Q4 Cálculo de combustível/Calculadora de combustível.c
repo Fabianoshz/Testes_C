@@ -16,8 +16,8 @@ int main() {
 
 	float cc = kmp / kml; // Realizando o cálculo de combustível consumido.
 	
-	float ct = cc * p; // Para descobrirmos o valor gasto, basta multiplicar
-					   // o combustível consumido pelo valor do combustível.
+	float ct = cc * p;	// Para descobrirmos o valor gasto, basta multiplicar
+						// o combustível consumido pelo valor do combustível.
 
 	printf("A quantidade de combustível usada foi: %f \n", cc);
 	printf("O valor usado com combustível foi: %f \n", ct);
