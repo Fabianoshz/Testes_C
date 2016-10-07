@@ -3,7 +3,7 @@
 int main()
 {
 	int n, y, i, m;
-	
+
 	printf("Por favor, insira um número inteiro delimitador:\n");
 	scanf("%d", &n);
 	printf("Agora insira o valor a ser calculado:\n");
