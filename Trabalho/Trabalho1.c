@@ -8,22 +8,32 @@ int main()
     // Controle
     char escolha;
 
+    // Saque
     float saque;
     float limite = limite_max; // Limite de crédito.
-    float saldo = 2000.00;
+    float saldo = 2000;
     int cobrar_limite;
 
+    // Depósito
     float deposito;
 
+    // Empréstimo
     float limite_emprestimo;
     float emprestimo;
     float juros = 0;
     int contador_juros = 1;
 
+    // Release the Kraken
     printf("Seja bem-vindo ao banco Le Roub Aremos, divirta-se!\n");
+
+    if (saldo == 0) {
+        printf("Saldo? ");
+        scanf("%f", &saldo);
+    }
 
     // Enquanto a escolha não for 'sair'.
     while (escolha != 'a') {
+
         // Aqui é feita a escolha da operação.
         for (;;) {
             printf("\nS - Saque\nE - Empréstimo\nD - Depósito\nA - Sair");
@@ -46,10 +56,6 @@ int main()
         // Lógica de acordo com a opção escolhida
         switch (escolha)
         {
-            case 'a': // Saída
-                printf("\nTchau, tchau! Cuidaremos do seu dinheiro.\nA propósito, seu saldo é de R$ %.2f.\nE seu limite especial é de R$ %.2f\n.", saldo, limite);
-                break;
-
             case 's': // Saque
                 printf("Qual o valor do saque? ");
                 scanf("%f", &saque);
@@ -90,8 +96,8 @@ int main()
                         break;
                     } else {
                         limite_emprestimo = saldo * 0.4;
-                        do
-                        {
+
+                        do {
                             printf("\nO valor máximo que você pode pedir de empréstimo é: R$ %.2f\nQual valor você deseja? ", limite_emprestimo);
                             scanf("%f", &emprestimo);
                         } while (emprestimo > limite_emprestimo);
@@ -122,4 +128,5 @@ int main()
         }
         cobrar_limite = 1;
     }
+    printf("\nTchau, tchau! Cuidaremos do seu dinheiro.\nA propósito, seu saldo é de R$ %.2f.\nE seu limite especial é de R$ %.2f.\n", saldo, limite);
 }
