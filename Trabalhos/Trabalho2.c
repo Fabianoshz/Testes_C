@@ -19,6 +19,7 @@ int find(int val)
     return CAP+1;
 }
 
+// Insert new value on an empty position.
 void insert(int val)
 {
     if (find(val) > CAP) {
@@ -34,6 +35,7 @@ void insert(int val)
     }
 }
 
+// Find the value position and remove it.
 void remove_by_value(int val)
 {
     pos = find(val);
@@ -46,6 +48,7 @@ void remove_by_value(int val)
     }
 }
 
+// Find the received value and change it.
 void change_by(int change, int by)
 {
     pos = find(change);
@@ -58,6 +61,7 @@ void change_by(int change, int by)
     }
 }
 
+// Find the received position and remove it.
 void remove_by_pos(int pos)
 {
     if (pos > CAP || pos < 0) {
@@ -67,10 +71,15 @@ void remove_by_pos(int pos)
     }
 }
 
-void show()
+// Show pos by received value.
+void show(int val)
 {
-    for (int i = 0; i < CAP; ++i) {
-        printf("Posição: %i -> Valor: %i\n", i, values[i]);
+    if (val == 0) {
+        for (int i = 0; i < CAP; ++i) {
+            printf("Posição: %i -> Valor: %i\n", i, values[i]);
+        }
+    } else {
+        printf("Posição: %i\n", find(val));
     }
 }
 
@@ -99,9 +108,9 @@ int main()
                 break;
 
             case 'a':
-                printf("Por favor, selecione uma posição: ");
+                printf("Por favor, selecione um valor para ser trocado: ");
                 scanf("%i", &value);
-                printf("Por favor, selecione uma valor: ");
+                printf("Por favor, selecione um valor: ");
                 scanf("%i", &value2);
                 change_by(value, value2);
                 break;
@@ -109,11 +118,11 @@ int main()
             case 'b':
                 printf("Por favor, selecione uma posição: ");
                 scanf("%i", &value);
-                find(value);
+                show(value);
                 break;
 
             case 'e':
-                show();
+                show(0);
                 break;
         }
     }
